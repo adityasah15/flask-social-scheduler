@@ -1,0 +1,343 @@
+/* ---------- General & Typography ---------- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+h1, h2 {
+    color: #1f1f2e;
+}
+
+/* ---------- Header ---------- */
+header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-btn {
+    background-color: #4b7bec;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    background-color: #3867d6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(75, 123, 236, 0.3);
+}
+
+/* ---------- Table Styles ---------- */
+.table-wrapper {
+    overflow-x: auto; /* For responsive behavior on small screens */
+}
+.posts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background-color: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.posts-table th, .posts-table td {
+    padding: 16px 20px;
+    text-align: left;
+    vertical-align: middle; /* Ensures content is vertically centered */
+    border-bottom: 1px solid #eee;
+}
+
+/* Content column specific styling */
+.posts-table td[data-label="Content"] {
+    max-width: 350px; /* Limits width */
+    white-space: normal; /* Allows text to wrap */
+    word-wrap: break-word; /* Breaks long words */
+}
+
+.posts-table thead {
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.posts-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.posts-table tbody tr:hover {
+    background-color: #f1f2f6;
+}
+
+/* Status-based row colors */
+.posts-table tr.scheduled { background-color: #fff; }
+.posts-table tr.posted { background-color: #e6f7f2; }
+.posts-table tr.failed { background-color: #fff0f0; } /* For future use */
+
+.status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    text-align: center;
+}
+tr.scheduled .status { color: #f39c12; background-color: #fef5e7; }
+tr.posted .status { color: #27ae60; background-color: #e9f7ef; }
+tr.failed .status { color: #e74c3c; background-color: #fbeeee; } /* For future use */
+
+
+.platform-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.platform-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.post-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.no-image {
+    color: #999;
+}
+
+.countdown {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* ---------- Action Buttons ---------- */
+.action-btn {
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    margin-right: 5px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.edit-btn { background-color: #ff9f43; }
+.edit-btn:hover { background-color: #e68e3a; }
+
+.delete-btn { background-color: #eb3b5a; }
+.delete-btn:hover { background-color: #d1304d; }
+
+.cancel-btn { background-color: #6c757d; }
+.cancel-btn:hover { background-color: #5a6268; }
+
+
+/* ---------- Form Card & Custom Select ---------- */
+.form-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    max-width: 650px;
+    margin: 30px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-card label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-card input[type="text"],
+.form-card input[type="datetime-local"],
+.form-card textarea,
+.form-card input[type="file"] {
+    box-sizing: border-box; /* Important for padding and width */
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+    border-color: #4b7bec;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(75, 123, 236, 0.2);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    flex-grow: 1; /* Takes more space */
+}
+
+/* Custom select dropdown */
+.custom-select {
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+.select-selected {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.select-items {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.select-items div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.select-items div:hover {
+    background: #f1f2f6;
+}
+.custom-select img {
+    width: 20px;
+    height: 20px;
+}
+.post-image-preview {
+    max-width: 150px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ---------- No Posts Message ---------- */
+.no-posts {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+.no-posts a {
+    color: #4b7bec;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1f1f2e;
+    color: #a0a0b0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+/* ---------- Responsive Design ---------- */
+@media screen and (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .posts-table thead {
+        display: none; /* Hide table head on mobile */
+    }
+    .posts-table tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .posts-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        text-align: right;
+        border-bottom: 1px solid #eee;
+    }
+    .posts-table td:last-child {
+        border-bottom: none;
+    }
+    .posts-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        text-align: left;
+        margin-right: 20px;
+    }
+    .posts-table td[data-label="Actions"] {
+        justify-content: flex-end; /* Align buttons to the right */
+    }
+}

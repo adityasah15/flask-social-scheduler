@@ -1,0 +1,26 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite database
+*.db
+*.sqlite3
+
+# Environment files
+.env
+venv/
+env/
+
+# Byte-compiled / optimized / DLL files
+*.pyd
+*.pyc
+
+# Flask uploads
+/static/uploads/
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store

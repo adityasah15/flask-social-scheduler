@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Schedule New Post{% endblock %}
+
+{% block content %}
+    <h2>📝 Schedule a New Post</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="form-card">
+        <!-- Post Title -->
+        <div class="form-group">
+            <label for="title">Post Title:</label>
+            <input type="text" id="title" name="title" placeholder="e.g., Exciting News!" required>
+        </div>
+
+        <!-- Post Content -->
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="5" placeholder="Write your post content here..." required></textarea>
+        </div>
+
+        <!-- Social Media Platform -->
+        <div class="form-group">
+            <label>Select Platform:</label>
+            <div class="custom-select">
+                <div class="select-selected">
+                    <span>Choose a platform</span>
+                </div>
+                <div class="select-items">
+                    <div data-value="Instagram">
+                        <img src="{{ url_for('static', filename='logos/instagram.png') }}" alt="Instagram"> Instagram
+                    </div>
+                    <div data-value="Twitter">
+                        <img src="{{ url_for('static', filename='logos/twitter.png') }}" alt="Twitter"> Twitter
+                    </div>
+                    <div data-value="Facebook">
+                        <img src="{{ url_for('static', filename='logos/facebook.png') }}" alt="Facebook"> Facebook
+                    </div>
+                    <div data-value="LinkedIn">
+                        <img src="{{ url_for('static', filename='logos/linkedin.png') }}" alt="LinkedIn"> LinkedIn
+                    </div>
+                </div>
+                <input type="hidden" name="platform" required>
+            </div>
+        </div>
+
+        <!-- Scheduled Time -->
+        <div class="form-group">
+            <label for="scheduled_time">Schedule Time:</label>
+            <input type="datetime-local" id="scheduled_time" name="scheduled_time" required>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="form-group">
+            <label for="image">Upload Image (optional):</label>
+            <input type="file" id="image" name="image" accept="image/*">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group form-buttons">
+            <button type="submit" class="nav-btn submit-btn">📅 Schedule Post</button>
+             <a href="{{ url_for('index') }}" class="action-btn cancel-btn">Cancel</a>
+        </div>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Custom dropdown functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const customSelect = document.querySelector(".custom-select");
+        if (customSelect) {
+            const selected = customSelect.querySelector(".select-selected");
+            const items = customSelect.querySelector(".select-items");
+            const hiddenInput = customSelect.querySelector("input[name='platform']");
+
+            selected.addEventListener("click", () => {
+                items.style.display = items.style.display === "flex" ? "none" : "flex";
+            });
+
+            items.querySelectorAll("div[data-value]").forEach(item => {
+                item.addEventListener("click", () => {
+                    selected.innerHTML = item.innerHTML;
+                    hiddenInput.value = item.getAttribute("data-value");
+                    items.style.display = "none";
+                });
+            });
+
+            document.addEventListener("click", function(e) {
+                if (!customSelect.contains(e.target)) {
+                    items.style.display = "none";
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}
